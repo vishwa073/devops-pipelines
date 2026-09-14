@@ -1,0 +1,23 @@
+name:Ci_pipeline
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubantu-latest
+    steps:
+    - name:Checkout_code
+      uses:actions/checkout@v4
+
+    - name:Set_up_Node.js
+      uses:actions/setup-node@v4
+      with:
+        node-version: '22'
+    - name:install_dependecies
+      run:npm install
+    - name:Run_test
+      run:npm test
+
+    
